@@ -29,9 +29,14 @@
 
         <script type="text/javascript" src="require.js" ></script>
         <script>
-            var require_js = ["../..{{isset($require_js) ? $require_js : ''}}"];
+            var require_js = {{$require_js}};
+
+                require_js = require_js ? ["../..{{isset($require_js) ? $require_js : ''}}"] : false;
                 requirejs(['../../config'], function(){
-                    requirejs(require_js);
+                    if(require_js){
+                        requirejs(require_js);
+                    }
+                    
                 });
         </script>
     </body>

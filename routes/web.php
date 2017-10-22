@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index/index');
-});
+// Route::get('/', function () {
+//     return view('index/index',[
+//         'require_js' => 0,
+//     ]);
+// });
+
+
+Route::get('/', 'IndexController@index');
